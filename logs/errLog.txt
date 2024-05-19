@@ -2,3 +2,5 @@
 20240518	20:04:59	aec080e7-406c-465f-89ba-1f4f184ea720	SyntaxError: Expected property name or '}' in JSON at position 4
 20240519	12:22:56	145dda6d-c339-426f-91b8-927e4e977708	SyntaxError: Unexpected token 'e', "#" is not valid JSON
 20240519	12:22:57	5aedf597-1092-425d-9d28-d588913669bc	SyntaxError: Unexpected token 'e', "#" is not valid JSON
+20240519	14:01:24	c754e2b6-e5f0-44f0-8ee9-63159be8a3ca	SyntaxError: Expected ',' or '}' after property value in JSON at position 13
+20240519	14:01:53	ca387bb9-479c-4d6b-b846-57209c051bfc	SyntaxError: Expected double-quoted property name in JSON at position 37

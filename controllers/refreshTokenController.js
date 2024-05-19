@@ -5,9 +5,28 @@ const handleRefreshToken = async (req, res) => {
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(401);
   const refreshToken = cookies.jwt;
+  res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: "true" });
 
   const foundUser = await User.findOne({ refreshToken }).exec();
-  if (!foundUser) return res.sendStatus(403); //Forbidden
+
+  //Detected refresh token reuse!
+  if (!foundUser) {
+    jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET,
+      async (err, decoded) => {
+        if (err) return res.sendStatus(403); //Forbidden
+
+        const hackedUser = await User.findOne({
+          username: decoded.username,
+        });
+        hackedUser.refreshToken = [];
+        const result = await hackedUser.save();
+        console.log(result);
+      }
+    );
+    return res.sendStatus(403); //Forbidden
+  }
   // evaluate jwt
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
     if (err || foundUser.username !== decoded.username)
