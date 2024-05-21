@@ -79,3 +79,9 @@
 20240519	14:01:57	4b65604d-f7e6-4564-a8fc-ae8c5cb1e629	DELETE	undefined	/employees
 20240519	14:02:02	f9dc8896-3296-4589-880e-975540beb6f7	GET	undefined	/employees
 20240519	14:02:17	74bb8fa7-b874-49f2-99c9-b9c6a4c7ea9d	POST	undefined	/employees
+20240519	17:25:18	a17c9635-6fc5-4fe9-9727-f69416b79010	POST	undefined	/auth
+20240519	17:25:35	f955e433-608f-4f10-8550-123fdcf4dbce	POST	undefined	/auth
+20240519	17:25:56	e4a69371-9d56-441c-b579-ba2c9c2a0b9b	GET	undefined	/logout
+20240519	17:26:01	467b9000-378f-4443-b044-4ee307445ec2	GET	undefined	/logout
+20240519	17:26:06	16531dd6-92a7-436f-b88b-4d784acf5273	POST	undefined	/auth
+20240519	17:26:13	99c401a8-8148-44ff-83fa-02924085fdbc	POST	undefined	/auth

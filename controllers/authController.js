@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const handleLogin = async (req, res) => {
   const cookies = req.cookies;
+  console.log(`Cookie available at login: ${JSON.stringify(cookies)}`);
   const { user, pwd } = req.body;
   if (!user || !pwd)
     return res
@@ -24,12 +25,12 @@ const handleLogin = async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "30s" }
+      { expiresIn: "10s" }
     );
     const newRefreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: "1d" }
+      { expiresIn: "15s" }
     );
 
     const newRefreshTokenArray = !cookies?.jwt

@@ -37,8 +37,10 @@ const handleRefreshToken = async (req, res) => {
     process.env.REFRESH_TOKEN_SECRET,
     async (err, decoded) => {
       if (err) {
+        console.log("expired refresh token");
         foundUser.refreshToken = [...newRefreshTokenArray];
         const result = await foundUser.save();
+        console.log(result);
       }
       if (err || foundUser.username !== decoded.username)
         return res.sendStatus(403);
